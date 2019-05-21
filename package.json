@@ -1,0 +1,27 @@
+{
+  "name": "leitura-udacity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "server": "cd api-server/; node server",
+    "front": "cd leitura/; npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeRonaldo/Leitura-Udacity.git"
+  },
+  "keywords": [
+    "leitura",
+    "reads",
+    "udacity",
+    "react"
+  ],
+  "author": "@ZeRonaldo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zeRonaldo/Leitura-Udacity/issues"
+  },
+  "homepage": "https://github.com/zeRonaldo/Leitura-Udacity#readme"
+}
