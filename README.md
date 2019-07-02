@@ -3,11 +3,18 @@ This project is part of the React Nanodegree program by udacity.
 
 
 ## TL-DR
-To start the project first of all start the backend server:
+Clone the project to your pc or mac:
+#### git clone https://github.com/zeRonaldo/Leitura-Udacity
+
+After cloned, access the main project folder and install the node dependencies:
+#### npm run install-all
+
+To start the project first of all start the backend server still on the main project folder:
 #### npm run server
-Second step, start the front-end react service:
+
+Second step, start the front-end react service from the main project folder:
 #### npm run front
-Just go on and enjoy it.
+
 
 
 ## About the project

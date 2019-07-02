@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npm test",
     "server": "cd api-server/; node server",
-    "front": "cd react-frontend/; npm start"
+    "front": "cd react-frontend/; npm start",
+    "install-all": "cd api-server/; npm install && cd ..; cd react-frontend/; npm install"
   },
   "repository": {
     "type": "git",
