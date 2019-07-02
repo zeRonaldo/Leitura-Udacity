@@ -1,0 +1,144 @@
+@import 'colors';
+body{
+    background: $background
+}
+.container{
+    max-width: 900px;
+    width: 90%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    .post{
+        padding: 10px 20px;
+       
+        border-radius: 5px;
+        margin: 10px;
+        color: $text;
+        a{
+            text-decoration: none;
+        }
+        .head-info{
+            h4{
+                color: $contrast;
+                font-weight: 500;
+                font-size: 1.6em;
+                margin: 5px 0;
+            }
+            h5{
+                color:$contrast;
+                font-weight: 600;
+                margin: 0;
+            }
+            h6{
+                margin:5px 0;
+                color: darken($text, 30);
+            }
+        }
+        .text>p{
+            color: $text;
+            font-size: .9em;
+        }
+        .actions{
+            display: flex;
+            align-content: flex-end;
+            justify-content: flex-end;
+            a{
+                color: $text;
+                &:hover{
+                    color: $contrast;
+                }
+            }
+            div{     
+                padding: 5px 10px;
+                justify-content: center;
+                align-items: center;
+                i{
+                    margin-right: 5px;
+                }
+               span{
+                   padding-left: 15px;
+                   font-weight: bold;
+               }
+               .up:hover{
+                   color:$contrast
+               }
+               .down:hover{
+                   color: $red;
+               }
+            }
+
+        }
+    }
+    
+}
+.new-comment{
+        max-width: 900px;
+        width: 100%;
+        margin: 10px auto;
+        padding: 10px 0;
+        border-bottom: 1px solid darken($text,30);
+        border-top: 1px solid darken($text,30);
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 20px;
+            textarea{
+                border: none;
+                resize: none;
+                border-radius: 5px;
+                background-color: lighten($background, 30);
+                max-width: 900px;
+                width: 100%;
+                padding: 5px;
+                margin-bottom: 10px;
+                &:focus{
+                    background-color: $text;
+                    color: $background;
+                }
+            }
+            input[type="submit"]{
+                background-color: $contrast;
+                border: none;
+                border-radius: 5px;
+                font-size: .85em;
+                padding: 10px 15px;
+                font-weight: 700;
+            }
+        }
+    }
+.comment{
+    padding: 20px;
+    color: $text;
+    h6{
+        color:darken($contrast, 10);
+        margin:0 5px;
+    }
+    p{
+        font-size: .85em;
+        margin: 10px;
+    }
+    .actions{
+        display: flex;
+        div{
+            padding: 5px 10px;
+            justify-content: center;
+            align-items: center;
+            i{
+                margin-right: 2px;
+            }
+           span{
+               padding-left: 5px;
+               font-weight: bold;
+               font-size: .8em;
+           }
+           .up:hover{
+               color:$contrast
+           }
+           .down:hover{
+               color: $red;
+           }
+        }
+    }
+}

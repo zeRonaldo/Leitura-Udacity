@@ -1,0 +1,37 @@
+@import 'colors';
+
+div.nav{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px 0;
+    align-content: center;
+    justify-content: space-between;
+    background: darken($background, 10);
+   
+    .logo{
+         margin-left: 20px;
+         color: $contrast;
+         font-family: $logo;
+         font-size: 1.4em;
+         font-weight: medium;
+         letter-spacing: 3px;
+         text-decoration: none
+    }
+    .search-bar>form>input{
+        margin-right: 20px;
+        background-color: lighten($background, 20);
+        border-radius: 32;
+        font-size: 1em;
+        line-height: 1.4em;
+        border-radius: 20px;
+        border: none;
+        padding: 5px 15px;
+        &:focus{
+            background-color: lighten($background,40);
+            color: $background;
+            outline: $contrast;
+            box-shadow: 0 0 5px $contrast
+        }
+    }
+}

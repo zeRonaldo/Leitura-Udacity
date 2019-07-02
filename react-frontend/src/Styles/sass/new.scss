@@ -1,0 +1,46 @@
+@import 'colors';
+.container{
+    max-width: 900px;
+    width: 90%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    form{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding:10px;
+        .title{
+            font-size: 1.8em;
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            background: lighten($background, 30);
+            margin: 10px 0;
+        }
+        .category{
+            font-size: 1.4em;
+            background-color: lighten($background, 30);
+            color: $contrast;
+            border: none;
+            margin: 5px 0;
+        }
+        .text{
+            font-size: 1em;
+            padding: 5px;
+            background-color: lighten($background, 30);
+            border-radius: 5px;
+        }
+        .send{
+            font-size: 1.3em;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+            background-color: $contrast;
+            color: $background;
+            margin: 20px auto;
+        }
+    }  
+}
+

@@ -1,0 +1,36 @@
+div.nav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 10px 0;
+  align-content: center;
+  justify-content: space-between;
+  background: #1a1a1a;
+}
+div.nav .logo {
+  margin-left: 20px;
+  color: #91D9D9;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4em;
+  font-weight: medium;
+  letter-spacing: 3px;
+  text-decoration: none;
+}
+div.nav .search-bar > form > input {
+  margin-right: 20px;
+  background-color: #666666;
+  border-radius: 32;
+  font-size: 1em;
+  line-height: 1.4em;
+  border-radius: 20px;
+  border: none;
+  padding: 5px 15px;
+}
+div.nav .search-bar > form > input:focus {
+  background-color: #999999;
+  color: #333;
+  outline: #91D9D9;
+  box-shadow: 0 0 5px #91D9D9;
+}
+
+/*# sourceMappingURL=navigation.css.map */

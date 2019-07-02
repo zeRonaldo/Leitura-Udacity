@@ -1,0 +1,124 @@
+.tabs {
+  background-color: #141414;
+}
+.tabs ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-content: center;
+  justify-content: space-evenly;
+}
+.tabs ul .option {
+  color: #eee;
+  padding: 20px 15px;
+  text-decoration: none;
+}
+.tabs ul .selected {
+  background-color: #050505;
+  color: #91D9D9;
+  padding-bottom: 18px;
+  border-bottom: 2px solid #91D9D9;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  background-color: #333;
+}
+main .container {
+  max-width: 900px;
+  width: 90%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+}
+main .container h2 {
+  display: flex;
+  justify-content: center;
+  color: #91D9D9;
+  text-shadow: 1px 1px 3px #1a1a1a;
+  text-transform: capitalize;
+  font-size: 1.9em;
+  font-weight: 600;
+}
+main .container .post {
+  padding: 10px 20px;
+  border: 1px solid #6f6f6f;
+  border-radius: 5px;
+  margin: 10px;
+  color: #eee;
+}
+main .container .post a {
+  text-decoration: none;
+}
+main .container .post .head-info h4 {
+  color: #91D9D9;
+  font-weight: 500;
+  font-size: 1.6em;
+  margin: 5px 0;
+}
+main .container .post .head-info h5 {
+  color: #91D9D9;
+  font-weight: 600;
+  margin: 0;
+}
+main .container .post .head-info h6 {
+  margin: 5px 0;
+  color: #a2a2a2;
+}
+main .container .post .text p {
+  position: relative;
+  width: 100%;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  max-height: 60px;
+  overflow: hidden;
+  font-size: 0.9em;
+  color: #eee;
+  background: #333;
+  border-bottom: 1px solid #555555;
+}
+main .container .post .text p:after {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 0;
+  height: 40px;
+  width: 100%;
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0), #333);
+  background: linear-gradient(rgba(0, 0, 0, 0), #333);
+}
+main .container .post .actions {
+  align-content: flex-end;
+  justify-content: flex-end;
+}
+main .container .post .actions a {
+  color: #eee;
+}
+main .container .post .actions a:hover {
+  color: #91D9D9;
+}
+main .container .post .actions div {
+  padding: 5px 10px;
+  justify-content: center;
+  align-items: center;
+}
+main .container .post .actions div i {
+  margin-right: 5px;
+}
+main .container .post .actions div span {
+  padding-left: 15px;
+  font-weight: bold;
+}
+main .container .post .actions div .up:hover {
+  color: #91D9D9;
+}
+main .container .post .actions div .down:hover {
+  color: #FF625E;
+}
+
+/*# sourceMappingURL=home.css.map */
