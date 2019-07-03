@@ -108,4 +108,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(Post))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Post))

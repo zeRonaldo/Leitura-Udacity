@@ -75,7 +75,7 @@ import { loadPost, loadPosts } from 'Actions'
 }
 
   render() {
-    const {categories, post} = this.props
+    const {categories} = this.props
     const {title, category, text, warning} = this.state
     return (
       <React.Fragment>

@@ -49,7 +49,7 @@ class CommentForm extends Component {
     }
 
     handleComment = (e) => {
-        const{comment, offForm} = this.props
+        const{comment} = this.props
 
         if(comment){
             console.log("EDITANDO")
