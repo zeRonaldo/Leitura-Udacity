@@ -125,8 +125,8 @@ export function addComments (id, timestamp, body, author, parentId) {
           timestamp:timestamp,
           body:body,
           author:author,
-          parentId:parentId
-          
+          parentId:parentId,
+          voteScore: 0
       })
   }).then((res) => res.json())
 }

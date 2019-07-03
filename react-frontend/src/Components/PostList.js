@@ -22,20 +22,27 @@ class PostList extends Component {
     render() {
         const {posts, match} = this.props
         
-
+        console.log("match length: ", Object.entries(match).length)
         return (
             <main>
                 <div className="container">
-                     {Object.entries(match).length !== 0 && <h2>{(match.params.category)}</h2>}
+                     {Object.entries(match.params).length !== 0 && <h2>{(match.params.category)}</h2>}
                      {(Object.entries(posts).length !== 0 && posts.constructor === Array) 
                         ? (
                              posts.map((post, index) => {
                                  return <Post post={post} key={index}/>
                                 })
                         ): (
-                            <h2>No Posts</h2>
+                            <div className="post" key="0">
+                                <h6 className="end">No posts</h6>
+                            </div>
                         )
                         }
+                        {(Object.entries(posts).length !== 0 && posts.constructor === Array) && (
+                            <div className="post" key="0">
+                                <h6 className="end">No more posts</h6>
+                            </div>
+                        )}
                 </div>
             </main>
         )

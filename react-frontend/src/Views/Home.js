@@ -3,6 +3,7 @@ import Navigation from 'Components/Navigation';
 import Tabs from 'Components/Tabs';
 import PostList from 'Components/PostList';
 import 'Styles/css/home.css'
+import FAB from 'Components/FAB';
 
 class Home extends Component {
   componentDidMount(){
@@ -15,6 +16,7 @@ class Home extends Component {
         <Navigation />
         <Tabs/>
         <PostList filter={this.props.filter}/>
+        <FAB />
       </React.Fragment>
     );
   }

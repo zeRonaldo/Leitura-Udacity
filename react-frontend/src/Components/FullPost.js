@@ -6,25 +6,32 @@ import {bubbles4} from 'react-icons-kit/icomoon/bubbles4'
 import {arrowDownBig} from 'react-icons-kit/metrize/arrowDownBig'
 import {arrowUpBig} from 'react-icons-kit/metrize/arrowUpBig'
 
+import {ic_more_vert} from 'react-icons-kit/md/ic_more_vert'
+import {pencil2} from 'react-icons-kit/icomoon/pencil2'
+import {bin} from 'react-icons-kit/icomoon/bin'
+
+
 import { fetchPost, votePost, deletePost} from 'Utils/api'
 import { loadPost } from 'Actions'
 import {withRouter} from 'react-router-dom'
+import { toDateReadable } from 'Utils/helpers';
 
 class FullPost extends Component {
-    state = { 
-        redirect : false
+    state={
+        options: false
     }
 
     componentDidMount= () => {
-        console.log(this.props.match)
         this.getPosts()
     }
 
 
     redirect_to_home = () =>{
-        this.setState({ 
-            redirect: true,
-        })
+        this.props.history.push("/")
+    }
+
+    editPost = (postId) =>{
+        this.props.history.push(`/edit/${postId}`)
     }
 
     getPosts = () => {
@@ -53,6 +60,12 @@ class FullPost extends Component {
         })
     }
 
+    toggleOptions = () => {
+        this.setState({
+            options: !this.state.options
+        })
+    }
+
     render() {
         const {post} = this.props
 
@@ -70,7 +83,7 @@ class FullPost extends Component {
                                     <h4>{post.title}</h4>
                             
                                 <h6>{post.author}</h6>
-                                <h6>{post.timestamp}</h6>
+                                <h6>{toDateReadable(post.timestamp)}</h6>
                             </div>
                             <div className="text">
                                 
@@ -84,6 +97,21 @@ class FullPost extends Component {
                                 </Link>
                                 <div><Icon icon={arrowUpBig} size={24} className="up" onClick={() => this.voteUp(post.id)}/><Icon icon={arrowDownBig} size={24} className="down" onClick={() => this.voteDown(post.id)}/> <span>{post.voteScore}</span></div>
                                 
+                                {post.author === this.props.user &&
+                                <div className="options-container">
+                                    <Icon icon={ic_more_vert} size={16} onClick={() => this.toggleOptions() } className="options-button"/>
+                                    {this.state.options &&
+                                        <div className="options">
+                                            {post.author === this.props.user &&
+                                                <React.Fragment>
+                                                    <div onClick={() => this.editPost(post.id)}><Icon icon={pencil2}/> Edit</div>
+                                                    <div onClick={() => this.deletePost(post.id)}><Icon icon={bin}/> Delete</div>
+                                                </React.Fragment>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                        }
                             </div>
                         </React.Fragment>
                         
@@ -95,10 +123,11 @@ class FullPost extends Component {
     }
 }
 
-function mapStateToProps ({ post }) {
+function mapStateToProps ({ post, user }) {
     
     return {
-        post:post
+        post:post,
+        user: user
     }
 }
 

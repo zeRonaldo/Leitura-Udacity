@@ -16,21 +16,45 @@ div.nav .logo {
   letter-spacing: 3px;
   text-decoration: none;
 }
-div.nav .search-bar > form > input {
+div.nav .user-side {
+  color: #eee;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
   margin-right: 20px;
-  background-color: #666666;
-  border-radius: 32;
-  font-size: 1em;
-  line-height: 1.4em;
-  border-radius: 20px;
-  border: none;
-  padding: 5px 15px;
 }
-div.nav .search-bar > form > input:focus {
-  background-color: #999999;
+div.nav .user-side span {
+  margin-right: 10px;
+}
+div.nav .user-side .user {
+  background-color: #FF625E;
+  margin-right: 10px;
+  overflow: hidden;
+  border-radius: 30px;
+  height: 30px;
+  width: 30px;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+}
+div.nav .users {
+  position: absolute;
+  background-color: black;
+  color: #eee;
+  top: 50px;
+  right: 20px;
+  width: 140px;
+  box-shadow: 3px 3px 6px black;
+  border-radius: 5px;
+  border: 1px solid #6f6f6f;
+}
+div.nav .users div {
+  padding: 5px;
+}
+div.nav .users div:hover {
+  background-color: #91D9D9;
+  cursor: pointer;
   color: #333;
-  outline: #91D9D9;
-  box-shadow: 0 0 5px #91D9D9;
 }
 
 /*# sourceMappingURL=navigation.css.map */

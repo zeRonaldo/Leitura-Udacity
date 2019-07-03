@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Comment from './Comment'
-import { fetchPost,fetchComents, deleteComment, voteComment, editComment  } from 'Utils/api'
+import { fetchPost,fetchComents, deleteComment, voteComment  } from 'Utils/api'
 import {  loadComments, loadPost } from 'Actions'
 import {withRouter} from 'react-router-dom'
 

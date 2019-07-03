@@ -6,7 +6,7 @@ import Post from './Views/Post';
 import Error from './Views/Error';
 import New from './Views/New';
 import {connect} from 'react-redux';
-import { loadCategory } from 'Actions'
+import { loadCategory, setUSer } from 'Actions'
 import { fetchCategories } from 'Utils/api'
 
 class App extends React.Component {
@@ -23,9 +23,10 @@ class App extends React.Component {
       return (
           <Switch>
               <Route exact path="/" component={Home} />
+              <Route path="/new" component={New} />
+              <Route path="/edit/:postId" component={New} />
               <Route exact path="/:category" render={({ match }) => ( <Home filter={ match }/> )}/>
               <Route path="/:category/:postId" render={({match}) => ( <Post filter={match}/> )} />
-              <Route path="/new" component={New} />
               <Route render={() => <Error location={location} />} />
           </Switch>
       )
@@ -39,6 +40,7 @@ function mapStateToProps ({ category }) {
   function mapDispatchToProps (dispatch) {
     return {
       loadCategories: (data) => dispatch(loadCategory(data)),
+      setUser: (data) => dispatch(setUSer(data))
     }
   }
   

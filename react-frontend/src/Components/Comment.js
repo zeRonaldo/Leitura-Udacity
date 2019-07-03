@@ -2,9 +2,18 @@ import React, { Component } from 'react'
 import {Icon} from 'react-icons-kit'
 import {arrowDownBig} from 'react-icons-kit/metrize/arrowDownBig'
 import {arrowUpBig} from 'react-icons-kit/metrize/arrowUpBig'
+import {ic_more_vert} from 'react-icons-kit/md/ic_more_vert'
+import {toDateReadable} from 'Utils/helpers'
+import {pencil2} from 'react-icons-kit/icomoon/pencil2'
+import {bin} from 'react-icons-kit/icomoon/bin'
+import {connect} from 'react-redux'
+import CommentForm from './CommentForm';
 
-export default class Comment extends Component {
-
+ class Comment extends Component {
+    state={
+        options: false,
+        edit: false
+    }
     changeComment = commentId =>{
         this.props.onChangeComment(commentId)
     }
@@ -16,24 +25,66 @@ export default class Comment extends Component {
     voteCommentDown = commentId => {
         this.props.onVoteComment(commentId, "downVote")
     }
-
     deleteComment = commentId => {
         this.props.onDeleteComment(commentId)
+        this.toggleOptions()
     }
 
+    editComment = () => {
+        this.toggleOptions()
+        this.toggleForm()
+    }
+
+    toggleOptions = () => {
+        this.setState({
+            options: !this.state.options
+        })
+    }
+    toggleForm = () => {
+        this.setState({
+            edit: !this.state.edit
+        })
+    }
     render() {
+        const{edit} = this.state
         const{data} = this.props
         return (
                 <div className="comment">
                     <h6>{data.author}</h6>
-                    <h6>{data.timestamp}</h6>
-                    <p> {data.body} </p>
+                    <h6>{toDateReadable(data.timestamp)}</h6>
+                    {edit ? <CommentForm comment={data} offForm={() => this.toggleForm()}/> : <p> {data.body} </p>}
+                   
                     <div className="actions">
-                            <div><Icon icon={arrowUpBig} className="up" size={16} onClick={() => this.voteCommentUp(data.id)}/><Icon icon={arrowDownBig} size={16} className="down" onClick={() => this.voteCommentDown(data.id)} /> <span>{data.voteScore}</span></div>
-                             
-                    
+                            <div>
+                                <Icon icon={arrowUpBig} className="up" size={16} onClick={() => this.voteCommentUp(data.id)}/>
+                                <Icon icon={arrowDownBig} size={16} className="down" onClick={() => this.voteCommentDown(data.id)} /> 
+                                <span>{data.voteScore}</span>
+                            </div>
+
+                            {data.author === this.props.user &&
+                                <div className="options-container">
+                                    <Icon icon={ic_more_vert} size={16} onClick={() => this.toggleOptions() }  className="options-button"/>
+                                    {this.state.options &&
+                                        <div className="options">
+                                            {data.author === this.props.user &&
+                                                <React.Fragment>
+                                                    <div onClick={() => this.setState({edit: true})}><Icon icon={pencil2}/> Edit</div>
+                                                    <div onClick={() => this.deleteComment(data.id)}><Icon icon={bin}/> Delete</div>
+                                                </React.Fragment>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                            }
                     </div>
                 </div>
         )
     }
 }
+
+const mapStateToProps = ({user}) =>{
+    return {
+        user: user
+    }
+}
+export default connect(mapStateToProps)(Comment)

@@ -4,7 +4,7 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
-  align-self: flex-start;
+  align-self: center;
 }
 .container form {
   display: flex;

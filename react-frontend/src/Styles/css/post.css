@@ -8,7 +8,8 @@ body {
   padding: 10px;
   display: flex;
   flex-direction: column;
-  align-self: flex-start;
+  align-self: center;
+  margin: 0 auto;
 }
 .container .post {
   padding: 10px 20px;
@@ -138,6 +139,40 @@ body {
 }
 .comment .actions div .down:hover {
   color: #FF625E;
+}
+
+.options-container {
+  position: relative;
+}
+.options-container .options-button:hover {
+  color: #91D9D9;
+  cursor: pointer;
+}
+.options-container .options {
+  background: #1a1a1a;
+  border-radius: 5px;
+  position: absolute;
+  top: -60px;
+  width: 100px;
+  padding: 0 !important;
+  box-shadow: 3px 3px 6px #1a1a1a;
+}
+.options-container .options div {
+  cursor: pointer;
+}
+.options-container .options div:hover {
+  background-color: #91D9D9;
+  color: #333;
+}
+.options-container .options::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 10%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #1a1a1a transparent transparent transparent;
 }
 
 /*# sourceMappingURL=post.css.map */

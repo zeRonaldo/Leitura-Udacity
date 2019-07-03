@@ -18,20 +18,47 @@ div.nav{
          letter-spacing: 3px;
          text-decoration: none
     }
-    .search-bar>form>input{
+    .user-side{
+        color:$text;
+        display: inline-flex;
+        align-items: center;
+        font-weight: 600;
         margin-right: 20px;
-        background-color: lighten($background, 20);
-        border-radius: 32;
-        font-size: 1em;
-        line-height: 1.4em;
-        border-radius: 20px;
-        border: none;
-        padding: 5px 15px;
-        &:focus{
-            background-color: lighten($background,40);
-            color: $background;
-            outline: $contrast;
-            box-shadow: 0 0 5px $contrast
+        span{
+            margin-right: 10px;
         }
+        .user{
+            background-color: #FF625E;
+            margin-right: 10px;
+            overflow: hidden;
+            border-radius: 30px;
+            height: 30px;
+            width: 30px;
+            align-content: center;
+            justify-content: center;
+            display: flex;
+        }
+        
     }
+    
+    .users{
+            position: absolute;
+            background-color: darken($background, 30);
+            color: $text;
+            top: 50px;
+            right: 20px;
+            width: 140px;
+            box-shadow: 3px 3px 6px darken($background, 40);
+            border-radius: 5px;
+            border: 1px solid darken($text, 50);
+            div{
+                padding:5px;
+                
+                &:hover{
+                    background-color: $contrast;
+                    cursor: pointer;
+                    color: $background
+                }
+            }
+        }
 }
