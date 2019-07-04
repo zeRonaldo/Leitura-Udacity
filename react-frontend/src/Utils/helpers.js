@@ -48,3 +48,10 @@ export function toDateReadable(date)
 export function hashCode(){
   return Date.now().toString(36)+ Math.random().toString(36).substr(2, 9);              
 }
+
+export function isEmpty (obj) {
+  if(Object.entries(obj).length > 0){
+    return false;
+  }
+  return true;
+}

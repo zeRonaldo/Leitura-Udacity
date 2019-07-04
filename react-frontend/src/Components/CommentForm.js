@@ -39,7 +39,7 @@ class CommentForm extends Component {
         e.preventDefault()
 
         editComment(id, Date.now(), text, author).then(() => {
-            offForm() 
+            offForm(text, Date.now()) 
             fetchComents(post.id).then( dados => {
                 console.log(dados) 
                 loadComments(dados)
@@ -52,11 +52,12 @@ class CommentForm extends Component {
         const{comment} = this.props
 
         if(comment){
-            console.log("EDITANDO")
+           
             this.EditComment(e)
         }else{
-            console.log("CRIANDO")
+            this.props.addCount()
             this.AddComment(e)
+            
         }
     }
 

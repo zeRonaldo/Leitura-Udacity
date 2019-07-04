@@ -35,7 +35,11 @@ class Post extends Component {
           loadPosts(dados)
         })
     }
-    
+
+    editPost = (postId) =>{
+        this.props.history.push(`/edit/${postId}`)
+    }
+
     deletePost = (id) =>{
         deletePost(id).then(dados => {
             this.props.history.push("/");
@@ -83,7 +87,7 @@ class Post extends Component {
                                         <div className="options">
                                             {post.author === this.props.user &&
                                                 <React.Fragment>
-                                                    <div ><Icon icon={pencil2}/> Edit</div>
+                                                    <div onClick={() => this.editPost(post.id)}><Icon icon={pencil2}/> Edit</div>
                                                     <div onClick={() => this.deleteComment(post.id)}><Icon icon={bin}/> Delete</div>
                                                 </React.Fragment>
                                             }

@@ -14,7 +14,7 @@ import {bin} from 'react-icons-kit/icomoon/bin'
 import { fetchPost, votePost, deletePost} from 'Utils/api'
 import { loadPost } from 'Actions'
 import {withRouter} from 'react-router-dom'
-import { toDateReadable } from 'Utils/helpers';
+import { toDateReadable, isEmpty } from 'Utils/helpers';
 
 class FullPost extends Component {
     state={
@@ -36,9 +36,19 @@ class FullPost extends Component {
 
     getPosts = () => {
         const { postId } = this.props.match.params
-        const { loadPost } = this.props
+        const { loadPost, setEmpty } = this.props
         fetchPost(postId).then(dados => {
+            
             loadPost(dados)
+            if(isEmpty(dados)){
+                console.log("vazio")
+                setEmpty()
+            }else{
+                if(typeof dados.id !== 'string'){
+                    console.log("erro", dados.error)
+                    setEmpty()
+                }
+            }
         })
     }
 
@@ -72,7 +82,7 @@ class FullPost extends Component {
         return (
             <div className="container">
                 <div className="post">
-                    {Object.entries(post).length > 0 &&
+                    {Object.entries(post).length > 0  &&
                         (
                         <React.Fragment>
                             <div className="head-info">
@@ -93,7 +103,7 @@ class FullPost extends Component {
                             </div>
                             <div className="actions">
                                 <Link to={`/${post.category}/${post.id}#comment-section`}>
-                                    <div><Icon icon={bubbles4} size={24}/> <span>{post.commentCount}</span></div>
+                                    <div><Icon icon={bubbles4} size={24}/> <span>{post.commentCount+this.props.count}</span></div>
                                 </Link>
                                 <div><Icon icon={arrowUpBig} size={24} className="up" onClick={() => this.voteUp(post.id)}/><Icon icon={arrowDownBig} size={24} className="down" onClick={() => this.voteDown(post.id)}/> <span>{post.voteScore}</span></div>
                                 

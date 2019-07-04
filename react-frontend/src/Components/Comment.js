@@ -12,7 +12,19 @@ import CommentForm from './CommentForm';
  class Comment extends Component {
     state={
         options: false,
-        edit: false
+        edit: false,
+        comment: {
+            text: '',
+            time: '',
+        }
+    }
+    componentDidMount = () => {
+        this.setState({
+            comment:{
+                text: this.props.data.body,
+                time: this.props.data.timestamp
+            }
+        })
     }
     changeComment = commentId =>{
         this.props.onChangeComment(commentId)
@@ -40,19 +52,23 @@ import CommentForm from './CommentForm';
             options: !this.state.options
         })
     }
-    toggleForm = () => {
+    toggleForm = (comment, time) => {
         this.setState({
-            edit: !this.state.edit
+            edit: !this.state.edit,
+            comment: {
+                text: comment,
+                time: time
+            }
         })
     }
     render() {
-        const{edit} = this.state
+        const{edit, comment} = this.state
         const{data} = this.props
         return (
                 <div className="comment">
                     <h6>{data.author}</h6>
-                    <h6>{toDateReadable(data.timestamp)}</h6>
-                    {edit ? <CommentForm comment={data} offForm={() => this.toggleForm()}/> : <p> {data.body} </p>}
+                    <h6>{toDateReadable(comment.time)}</h6>
+                    {edit ? <CommentForm comment={data} offForm={(comment,time) => this.toggleForm(comment, time)}/> : <p> {comment.text} </p>}
                    
                     <div className="actions">
                             <div>

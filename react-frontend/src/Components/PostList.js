@@ -22,7 +22,6 @@ class PostList extends Component {
     render() {
         const {posts, match} = this.props
         
-        console.log("match length: ", Object.entries(match).length)
         return (
             <main>
                 <div className="container">

@@ -4,7 +4,7 @@ import 'Styles/css/new.css'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import { hashCode, capitalize } from 'Utils/helpers';
-import { addPost, editPost } from 'Utils/api';
+import { fetchPost, addPost, editPost } from 'Utils/api';
 import { loadPost, loadPosts } from 'Actions'
 
  class New extends Component {
@@ -53,14 +53,13 @@ import { loadPost, loadPosts } from 'Actions'
   componentDidMount = () => {
     const {match} = this.props;
     if(Object.entries(match.params).length !== 0){
-      loadPost(match.params.postId)
+      fetchPost(match.params.postId).then(dados => {
         this.setState({
-          title: this.props.post.title,
-          category: this.props.post.category,
-          text: this.props.post.body
+          title: dados.title,
+          category: dados.category,
+          text: dados.body
         })
-      
-      
+      })
     }
   }
 
